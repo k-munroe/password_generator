@@ -14,4 +14,22 @@ password_collection.append(random.choices(letters, k=nr_letters))
 password_collection.append(random.choices(numbers, k=nr_numbers))
 password_collection.append(random.choices(symbols, k=nr_symbols))
 
-print(password_collection)
+#print(password_collection)
+
+#next step, remove nested lists and allocate all elements from lists into a single list
+
+#[[a], [b], [c]]
+
+flat_list = []
+
+for lists in password_collection:
+    if type(lists) is list:
+        for items in lists:
+            flat_list.append(items)
+    else:
+        flat_list.append(lists)
+
+random.shuffle(flat_list)
+
+print(''.join(flat_list))
+
